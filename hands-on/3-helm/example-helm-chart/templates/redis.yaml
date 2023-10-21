@@ -22,7 +22,8 @@ spec:
             command:
             - redis-cli
             - set
-            - "KEY" "VALUE"
+            - KEY
+            - VALUE
           initialDelaySeconds: 5
           periodSeconds: 5
 ---
