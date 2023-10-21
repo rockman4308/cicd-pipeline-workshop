@@ -1,2 +1,9 @@
 nginx:
   image: nginx:latest
+  replicas: 1
+  port: 80
+redis:
+  image: redis:latest
+  replicas: 1
+  port: 6379
+

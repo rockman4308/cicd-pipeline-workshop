@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: redis
 spec:
-  replicas: 1
+  replicas: {{ .Values.redis.replicas }}
   selector:
     matchLabels:
       app: redis
@@ -14,9 +14,9 @@ spec:
     spec:
       containers:
       - name: redis
-        image: redis:latest
+        image: {{ .Values.redis.image }}
         ports:
-        - containerPort: 6379
+        - containerPort: {{ .Values.redis.port }}
 ---
 apiVersion: v1
 kind: Service
@@ -26,6 +26,6 @@ spec:
   selector:
     app: redis
   ports:
-  - port: 6379
-    targetPort: 6379
+  - port: {{ .Values.redis.port }}
+    targetPort: {{ .Values.redis.port }}
   type: ClusterIP
