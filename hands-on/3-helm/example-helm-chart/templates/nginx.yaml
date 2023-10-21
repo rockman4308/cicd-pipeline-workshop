@@ -22,11 +22,11 @@ spec:
             readOnly: true
         livenessProbe:
           httpGet:
-          path: /healthz
-          port: {{ .Values.nginx.port }}
-          httpHeaders:
-          - name: Custom-Header
-            value: Awesome
+            path: /healthz
+            port: {{ .Values.nginx.port }}
+            httpHeaders:
+            - name: Custom-Header
+              value: Awesome
           initialDelaySeconds: 3
           periodSeconds: 3
       volumes:
